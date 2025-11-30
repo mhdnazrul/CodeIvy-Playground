@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define FAST_IO                \
+  ios::sync_with_stdio(false); \
+  cin.tie(nullptr);
+using ll = long long;
+using vi = vector<int>;
+using vll = vector<ll>;
+const ll mod = 1e9 + 7;
+
+void solve()
+{
+  string s;
+  cin >> s;
+  int ans = 0, len = s.size() - 1;
+  ans += s[0] - '0';
+  ans += s[len] - '0';
+  cout << ans << endl;
+}
+
+int main()
+{
+  FAST_IO;
+  int T;
+  cin >> T;
+  while (T--)
+    solve();
+  return 0;
+}
