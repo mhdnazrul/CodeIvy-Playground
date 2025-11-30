@@ -1,26 +1,17 @@
-// problem link:https://codeforces.com/group/MWSDmqGsZm/contest/219158/problem/K
-// Author ~ cf handle: nazrulislam_7
+// K-max-and-min.cpp
 #include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
-using ll = long long;
-#define nl '\n'
-#define all(vec) (vec).begin(), (vec).end()
-#define rall(vec) (vec).rbegin(), (vec).rend()
-template<class T> void readV(vector<T>& v) { for(auto &x : v) cin >> x; }
-template<class T> void printV(const vector<T>& v) { for(auto x : v) cout << x << ' '; cout << '\n'; }
 
-void solve() {
-    int a,b,c;  cin>>a>>b>>c;
-    cout<<min(min(a,b),c)<<" "<<max(max(a,b),c)<<nl;
-}
+int main()
+{
+  int A, B, C, maximum, minimum;
+  cin >> A >> B >> C;
 
-int32_t main() {
-    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
-    int test_cases = 1;
-    //cin >> test_cases;
-    for(int tc = 1; tc <= test_cases; tc++){
-    //  cout << "Case #" << tc << ": ";
-        solve();
-    }
-    return 0;
+  minimum = min(A, min(B, C));
+  maximum = max(A, max(B, C));
+
+  cout << minimum << " " << maximum << endl;
+
+  return 0;
 }
