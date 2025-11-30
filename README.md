@@ -1,16 +1,12 @@
 # <div align="center">⭐ **CodeIvy-Playground**
-
 ### <div align="center">*My All-in-One Competitive Programming Journey Repository*
 
----
 
 <div align="center">
 
 # 🌿 **CodeIvy-Playground**
 
 ### *Growing my skills through competitive programming — one problem at a time.*
-
-<img src="https://github.com/user-attachments/assets/30180da8-a09b-4374-9223-490ae4b59b84" width="750"/>
 
 <br/>
 
