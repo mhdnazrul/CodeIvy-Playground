@@ -124,6 +124,10 @@ credentials.json
 *.o
 *.cph
 *.prob
+*.bin
+*.exe
+a.out
+build/
 
 # Unwanted folders
 cph/
