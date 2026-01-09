@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://vjudge.net/contest/777903#problem/D
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,17 +20,32 @@ template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
 
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
+    int n;  in(n);
+    vi a(n);    inV(a);
+    vi f;
+    int crr=0, days=0;
+    for(int i=0; i<n; i++){
+        if(a[i]<0){
+            if(crr==2){
+                f.push_back(days);
+                crr=1;
+                days=1;
+            }else{
+                crr++;
+                days++;
+            }
+        }else{
+            days++;
+        }
     }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
-    }
+    if(crr>0){f.push_back(days);}
+    out(sz(f));
+    outV(f);
+}
 
 int32_t main(){
     fastio();      int T=1; 
-    if(!(cin>>T))  return 0;
+    //if(!(cin>>T))  return 0;
     while(T--)     run_case();
     return 0;
 }

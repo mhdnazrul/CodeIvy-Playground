@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://www.hackerrank.com/contests/ycpc-beginners-round-2k25/challenges/same-parity-3
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,13 +20,14 @@ template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
 
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
+    int n,x;      in(n);
+    int en=0,odd=0,ep= n/2, op =(n +1)/ 2;
+    for(int i=0;i<n;i++){
+        in(x);
+        (x&1)?odd++:en++;
     }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
-    }
+    ((en==ep && odd==op)||(en==op&&odd==ep))?out("YES"):out("NO");
+}
 
 int32_t main(){
     fastio();      int T=1; 

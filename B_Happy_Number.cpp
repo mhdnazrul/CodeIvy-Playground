@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://atcoder.jp/contests/abc439/tasks/abc439_b
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,19 +18,29 @@ template<class T> void in(T &x){cin>>x;}
 template<class T> void inV(vector<T> &v){for(auto &x:v) cin>>x;}
 template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
-
+ll okBool(ll n){
+    ll sum=0;
+    while(n>0){
+        ll d = n%10;
+        sum+=d*d;
+        n/=10;
+    }
+    return sum;
+}
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
+    ll n;       cin>>n;
+    set<int> st;
+    ll cnt=0;
+    while(n!=1 && !st.count(n)){
+        st.insert(n);
+        n = okBool(n);
     }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
-    }
+    n==1?out("Yes"):out("No");
+}
 
 int32_t main(){
     fastio();      int T=1; 
-    if(!(cin>>T))  return 0;
+    //if(!(cin>>T))  return 0;
     while(T--)     run_case();
     return 0;
 }

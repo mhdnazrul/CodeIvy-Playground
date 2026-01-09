@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
-  │                        >   Handle:- nazrulislam_7             
-  │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │                        >   Handle:- nazrulislam_7
+  │                        >   Author:- Nazrul Islam
+  │Problem Link: https://vjudge.net/contest/777903#problem/H
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,19 +18,20 @@ template<class T> void in(T &x){cin>>x;}
 template<class T> void inV(vector<T> &v){for(auto &x:v) cin>>x;}
 template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
-
+string str,s;
+int n,a;
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
-    }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
-    }
+    cin>>s>>a;
+    if((s[0]=='f' && a==1) || (s[0]=='b' && a==2))
+        out('L');
+    else out('R');
+}
 
 int32_t main(){
-    fastio();      int T=1; 
-    if(!(cin>>T))  return 0;
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    fastio();      int T=1;
+    //if(!(cin>>T))  return 0;
     while(T--)     run_case();
     return 0;
 }

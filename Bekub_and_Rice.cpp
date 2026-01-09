@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://www.hackerrank.com/contests/ycpc-grand-finale-2025-by-phitron-1767018575/challenges/bekub-and-rice
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,17 +20,40 @@ template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
 
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
+    int n, w;    cin >> n >> w;
+    vi v(n), div; inV(v);
+    for (int i = 1; i * i <= w; i++) {
+        if (w % i == 0) {
+            div.push_back(i);
+            if (i != w / i) div.push_back(w / i);
+        }
     }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
+    vll f(n + 1, 0);
+    for (int i = 0; i < n; i++) {
+        f[i + 1] = f[i] + v[i];
     }
+
+    unordered_set<ll> visit;
+    for (int i = 0; i <= n; i++) {
+        visit.insert(f[i]);
+    }
+
+    for (int d : div) {
+        for (int i = 0; i <= n; i++) {
+            long long target = f[i] + d;
+            if (visit.count(target)) {
+                cout << "YES\n";
+                return ;
+            }
+        }
+    }
+
+    cout << "NO\n";
+}
 
 int32_t main(){
     fastio();      int T=1; 
-    if(!(cin>>T))  return 0;
+    //if(!(cin>>T))  return 0;
     while(T--)     run_case();
     return 0;
 }

@@ -56,16 +56,16 @@ int32_t main() {
 using namespace std;
 typedef long long ll;
 
-ll gcd(ll a, ll b)
+ll GCDfun(ll a, ll b)
 {
 	if (a == 0)
 		return b;
-	gcd(b % a, a);
+	GCDfun(b % a, a);
 }
 
 ll lcm(ll a, ll b)
 {
-	return (a*b) / gcd(a, b);
+	return (a*b) / GCDfun(a, b);
 }
 
 int main()

@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://atcoder.jp/contests/abc439/tasks/abc439_c
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,17 +20,29 @@ template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
 
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
+    int n;      cin>>n;
+    vi cnt(n+1,0);
+    int sq = sqrt(n);
+    for(int i=1; i<=n; i++){
+        for(int j=i+1; j<=sq; j++){
+            int x = (i*i) + (j*j);
+            if(x>n)break;
+            else cnt[x]++;
+        }
     }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
+    vi ans;
+    for(int i=1; i<=n; i++){
+        if(cnt[i]==1)ans.push_back(i);
     }
+    out(sz(ans));
+    if(!ans.empty()){
+        outV(ans);
+    }
+}
 
 int32_t main(){
     fastio();      int T=1; 
-    if(!(cin>>T))  return 0;
+    //if(!(cin>>T))  return 0;
     while(T--)     run_case();
     return 0;
 }

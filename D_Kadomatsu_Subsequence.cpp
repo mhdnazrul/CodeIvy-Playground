@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://atcoder.jp/contests/abc439/tasks/abc439_d
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,17 +20,28 @@ template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
 
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
+    int n;      cin>>n;
+    vll a(n);   inV(a);
+    unordered_map<ll,ll> x,y;
+    for(auto v:a) x[v]++;
+    ll ans =0;
+    for(int i=0; i<n; i++){
+        ll val = a[i];
+        x[val]--;
+        if(val%5==0){
+            ll tp = val/5;
+            ll tp2 = 7*tp;
+            ll tp3 = 3*tp;
+            ans+=x[tp2] * x[tp3];
+            ans+= y[tp2] * y[tp3];
+        }
+        y[val]++;
     }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
-    }
-
+    out(ans);
+}
 int32_t main(){
     fastio();      int T=1; 
-    if(!(cin>>T))  return 0;
+    //if(!(cin>>T))  return 0;
     while(T--)     run_case();
     return 0;
 }

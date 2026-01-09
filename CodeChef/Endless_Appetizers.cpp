@@ -1,7 +1,7 @@
 /*┌────────────────────────────────────────────────────────────────────────────────────┐
   │                        >   Handle:- nazrulislam_7             
   │                        >   Author:- Nazrul Islam                   
-  │Problem Link: https://codeforces.com/contest/2178/problem/A
+  │Problem Link: https://www.codechef.com/practice/course/logical-problems/DIFF800/problems/MOZZ
   └────────────────────────────────────────────────────────────────────────────────────┘*/
 #include <bits/stdc++.h>
 using namespace std;
@@ -20,13 +20,10 @@ template<class T> void out(const T &x){cout<<x<<'\n';}
 template<class T> void outV(const vector<T> &v){for(int i=0;i<(int)v.size();i++) cout<<v[i]<<(i+1<(int)v.size()?' ':'\n');}
 
 void run_case(){
-    string s;     cin >> s;    
-    int cnt_Y = 0;
-    for(char c : s) {
-        if(c == 'Y') cnt_Y++;
-    }
-    cout<<(cnt_Y <= 1?"YES\n":"NO\n");
-    }
+    double x,y,r;       cin>>x>>y>>r;
+    double ans = ceil((x+(r/30))/y);
+    out(ans);
+}
 
 int32_t main(){
     fastio();      int T=1; 
