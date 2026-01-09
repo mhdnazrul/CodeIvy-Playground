@@ -125,7 +125,6 @@ credentials.json
 *.cph
 *.prob
 *.bin
-*.exe
 a.out
 build/
 
